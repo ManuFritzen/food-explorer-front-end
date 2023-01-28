@@ -36,7 +36,7 @@ export function Details(){
           </div>
 
           <div className="ingredients">
-            <IngredientTag title="alface" />           
+            <IngredientTag title="pepino" />           
           </div>
 
             <div className="price">

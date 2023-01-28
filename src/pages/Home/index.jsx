@@ -10,10 +10,19 @@ import {DishCard} from "../../components/DishCard";
 import {Footer} from "../../components/Footer";
 
 
-
-
 export function Home(){  
 
+  // "mocando" / fingindo que vem do backend
+  const listaPratos = [
+    {
+      title: "Spaguetti Gambe",
+      price: 89.70
+    },
+    {
+      title: "Spaguetti Carbonara",
+      price: 69.90
+    }
+  ];
   
   return(
     <Container>
@@ -31,7 +40,11 @@ export function Home(){
         </section>
 
         <Options title="Pratos principais" >
-        <DishCard/> 
+        {listaPratos.map(prato => (<DishCard
+          title={prato.title}
+          price={prato.price}
+        />))}
+        
        
         </Options> 
 

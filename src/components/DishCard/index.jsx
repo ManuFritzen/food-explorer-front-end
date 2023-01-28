@@ -3,7 +3,7 @@ import { Button } from '../Button';
 import { AiOutlineHeart } from 'react-icons/ai';
 import SpaguettiGambe from "../../assets/spaguetiGambe.png" 
 
-export function DishCard() {
+export function DishCard(props) {
     
 
     return (
@@ -12,10 +12,10 @@ export function DishCard() {
             <img src={SpaguettiGambe} alt="Spaguetti GAmbe" />
 
             <button>
-                <h3>Spaguetti Gambe</h3>
+                <h3>{props.title}</h3>
             </button>
             <p>Massa fresca com camarões e pesto. </p>
-            <strong>R$ 79,97</strong>
+            <strong>R$ {props.price}</strong>
 
             <div>
                 <span>-</span>
