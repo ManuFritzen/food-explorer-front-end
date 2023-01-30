@@ -1,5 +1,7 @@
 import { Container, Content } from "./styles";
 
+import { Link } from "react-router-dom";
+
 import { IoIosArrowBack } from "react-icons/io";
 import {IngredientTag} from "../../components/IngredientTag";
 import SaladaRavanello from "../../assets/saladaRavanello.png";
@@ -16,10 +18,12 @@ export function Details(){
             <Header/>
             <main>
         <div>
-          <button className="backToPage">
-            <IoIosArrowBack />
-            Voltar
-          </button>
+          <Link to="/">
+            <button className="backToPage">
+              <IoIosArrowBack />
+              Voltar
+            </button>
+          </Link>
         </div>
 
         <Content>

@@ -1,4 +1,5 @@
 import {Container} from "./styles";
+import {Link} from 'react-router-dom';
 import Logo from "../../assets/logo.svg";
 import {Input} from "../../components/Input";
 import {Button} from "../../components/Button";
@@ -29,7 +30,9 @@ export function Login(){
 
                 <Button title="Entrar" className="button"/>
 
-                <ButtonText title="Criar uma conta" className="buttonText"/>
+                <Link to="/register">
+                    <ButtonText title="Criar uma conta" className="buttonText"/>
+                </Link>
 
 
             </form>

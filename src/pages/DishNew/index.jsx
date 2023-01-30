@@ -1,4 +1,5 @@
 import { Container, Form, InputWrapper, ImgPlate, InputItem } from "./styles";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg"
 import Coupon from "../../assets/coupon.svg"
 import { Button } from "../../components/Button";
@@ -13,6 +14,7 @@ import { Textarea } from "../../components/Textarea";
 
 
 export function DishNew() {
+    
    
 
     return (
@@ -30,10 +32,12 @@ export function DishNew() {
             </header>
 
             <main>
-                <button className="button-back" >
-                    <IoIosArrowBack />
-                    voltar
-                </button>
+                <Link to="/">
+                    <button className="button-back" >
+                        <IoIosArrowBack />
+                        voltar
+                    </button>
+                </Link>
                 <h2>Editar Prato</h2>
                 <Form>
                     <InputWrapper>
