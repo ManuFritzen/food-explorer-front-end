@@ -62,6 +62,10 @@ export const Container = styled.div `
         position: absolute;
         top: 0;
         right: 20px;
+        :hover{
+            color: ${({theme}) => theme.COLORS.RED};
+            
+        }
     }
     >.edit-plate {
         font-size: 20px;

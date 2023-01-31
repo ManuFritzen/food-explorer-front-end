@@ -1,6 +1,6 @@
 import { Container } from './styles';
 import { Button } from '../Button';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { FiHeart } from 'react-icons/fi';
 import SpaguettiGambe from "../../assets/spaguetiGambe.png" 
 
 export function DishCard(props) {
@@ -26,7 +26,7 @@ export function DishCard(props) {
             </div>
             
             <button className='favorites'>
-                <AiOutlineHeart/>
+                <FiHeart/>
             </button>
 
         </Container>

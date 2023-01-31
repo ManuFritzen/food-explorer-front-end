@@ -53,5 +53,10 @@ export const Container = styled.header`
         display: flex;
         align-items: center;
         gap: 15px;
+
+        .heart:hover{
+           color: ${({theme})=> theme.COLORS.RED};
+            
+        }
     }
 `

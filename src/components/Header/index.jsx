@@ -1,5 +1,5 @@
 import {Container} from "./styles";
-import { FiSearch, FiLogOut, FiUser, FiHeart } from "react-icons/fi";
+import { FiSearch, FiUser, FiHeart } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
 
@@ -22,7 +22,7 @@ export function Header(){
             </div>
 
             <div className="buttonIcons">
-                <ButtonText  icon={FiHeart} /> 
+                <ButtonText className="heart"  icon={FiHeart} /> 
 
                 <Link to="/profile">
                     <ButtonText icon={FiUser}/>           
