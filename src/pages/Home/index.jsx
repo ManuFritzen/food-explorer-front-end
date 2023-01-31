@@ -2,6 +2,7 @@
 import { Container} from "./styles.js";
 
 import Imagem from "../../assets/pngegg 1.png";
+import Espsguete from "../../assets/spaguetiGambe.png"
 
 
 import {Header} from "../../components/Header";
@@ -17,6 +18,7 @@ export function Home(){
     {
       title: "Spaguetti Gambe",
       price: 89.70
+     
     },
     {
       title: "Spaguetti Carbonara",
