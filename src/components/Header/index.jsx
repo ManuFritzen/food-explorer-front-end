@@ -1,5 +1,7 @@
 import {Container} from "./styles";
-import { FiSearch, FiLogOut } from "react-icons/fi";
+import { FiSearch, FiLogOut, FiUser, FiHeart } from "react-icons/fi";
+
+import { Link } from "react-router-dom";
 
 import Logo from "../../assets/logo.svg";
 import Coupon from "../../assets/coupon.svg";
@@ -19,7 +21,13 @@ export function Header(){
                 <h1>food explorer</h1>
             </div>
 
-            <ButtonText title="Meus favoritos" />              
+            <div className="buttonIcons">
+                <ButtonText  icon={FiHeart} /> 
+
+                <Link to="/profile">
+                    <ButtonText icon={FiUser}/>           
+                </Link>
+            </div>
 
             <Input className="input"           
             icon={FiSearch}

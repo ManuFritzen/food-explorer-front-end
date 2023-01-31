@@ -48,4 +48,10 @@ export const Container = styled.header`
         border: none;
         margin-right: 128px;
     }
+
+    .buttonIcons{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 `
