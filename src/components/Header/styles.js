@@ -59,4 +59,9 @@ export const Container = styled.header`
             
         }
     }
+
+    .foodOrder{
+        width: inherit;
+       
+    }
 `

@@ -16,6 +16,7 @@ export function Header(){
 
     return(
         <Container>
+            
             <div className="logo">
                 <img src={Logo} alt="Logo" />
                 <h1>food explorer</h1>
@@ -34,7 +35,9 @@ export function Header(){
             placeholder="Busque pelas opções de pratos"
             />
 
-            <Button icon={Coupon} title="Meu pedido (0)" />
+            <Link className="foodOrder" to="/foodOrder">
+                <Button icon={Coupon} title="Meu pedido (0)" />
+            </Link>
 
             <button className="logout">
                 <img src={Exit} alt="sair" />
