@@ -17,7 +17,7 @@ export const Container = styled.div`
           gap: 11px;
           font-weight: 500;
           font-size: 24px;
-          color: #E1E1E6;
+          color: ${({theme}) => theme.COLORS.GRAY_1};
           margin-bottom: 24px;
         }
     }
