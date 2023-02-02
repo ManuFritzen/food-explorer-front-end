@@ -6,6 +6,9 @@ export function FoodOrder(){
     return(
         <Container>
             <Header/>
+            <main>
+                
+            </main>
 
             <Footer/>
         </Container>
