@@ -61,7 +61,7 @@ export const Container = styled.header`
     }
 
     .foodOrder{
-        width: inherit;
+        width: 500px;
        
     }
 `
