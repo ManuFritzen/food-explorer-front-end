@@ -16,11 +16,10 @@ export const Container = styled.div`
    
    `;
 
-export const Main = styled.main`
-    grid-area: "content";
-    min-width: 136.8rem;
+export const Main = styled.main`   
+    width: 100%;
 
-    padding: 2.4rem 12.3rem;
+    padding: 34px 123px;
     
     display: flex;
     justify-content: space-between;
@@ -52,13 +51,10 @@ export const Main = styled.main`
         }
    }
 
-    .paymentMethods{
-        margin-left: 3rem;
-    }
+   
 
     .paymentBox{
         margin-top: 3.2rem;
-        width: 53rem;
         height: 44.5rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
