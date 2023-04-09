@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.span`
+width: 100%;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -16,7 +17,9 @@ export const Container = styled.span`
    }
 
     div{
+        width:100%;
         display: flex;
         gap: 27px;
+        align-items: center;
     }
 `;

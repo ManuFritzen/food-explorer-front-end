@@ -30,12 +30,12 @@ export const Container = styled.div`
    
     
 
-    background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
+    background: linear-gradient(180deg, ${({theme}) => theme.COLORS.BANNER_CLEAR} 0%, ${({theme}) => theme.COLORS.BANNER_DARK} 100%);
     border-radius: 8px;
 
     margin-bottom:62px;
 
-    img{
+    >img{
         position: absolute;
         bottom: 0px;
         left: -53px;
@@ -61,8 +61,8 @@ export const Container = styled.div`
         font-size: 16px;
         line-height: 140%;
     }
-   }
-   
-
-
+}
 `;
+
+
+

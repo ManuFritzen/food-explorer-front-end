@@ -1,33 +1,58 @@
-import { Container } from './styles';
+import { 
+    Container, 
+    DishCardImage,
+    DishCardContent,
+    DishCardTitle,
+    DishCardDescription,
+    DishCardControl,
+    DishCardFavorites,
+    DishCardPrice
+} from './styles';
+import { useState } from 'react';
 import { Button } from '../Button';
 import { FiHeart } from 'react-icons/fi';
-import SpaguettiGambe from "../../assets/spaguetiGambe.png" 
 
 export function DishCard(props) {
+
+    const[ dishAdd, setDishAdd] = useState(1);
+    
+    function addDish(){
+        if(dishAdd>0){
+            setDishAdd(dishAdd+1);
+        }
+    }
+
+    function removeDish(){
+        if(dishAdd>1){
+            setDishAdd(dishAdd-1);
+        }
+    }
     
 
     return (
         <Container>
+            <DishCardImage src={props.image} alt={props.alt} />
+            <DishCardContent>
+                <DishCardTitle>
+                    {props.title}
+                </DishCardTitle>
+                <DishCardDescription>
+                    {props.text}
+                </DishCardDescription>
+                <DishCardPrice>R$ {props.price}</DishCardPrice>
+            </DishCardContent>
 
-            <img src={SpaguettiGambe} alt="Spaguetti GAmbe" />
-
-            <button>
-                <h3>{props.title}</h3>
-            </button>
-            <p>Massa fresca com camarões e pesto. </p>
-            <strong>R$ {props.price}</strong>
-
-            <div>
-                <span>-</span>
-                <span>0</span>
-                <span>+</span>
+            <DishCardControl>
+                <span onClick={removeDish}>-</span>
+                <span>{dishAdd<10?`0${dishAdd}`:dishAdd}</span>
+                <span onClick={addDish}>+</span>
 
                 <Button title={"Incluir"}/>
-            </div>
+            </DishCardControl>
             
-            <button className='favorites'>
+            <DishCardFavorites>
                 <FiHeart/>
-            </button>
+            </DishCardFavorites>
 
         </Container>
     );

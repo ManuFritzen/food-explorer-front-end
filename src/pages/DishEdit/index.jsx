@@ -13,7 +13,7 @@ import { Textarea } from "../../components/Textarea";
 //import { useState, useEffect } from "react";
 
 
-export function DishNew() {
+export function DishEdit() {
     
    
 
@@ -98,10 +98,11 @@ export function DishNew() {
                                
                             />
                         </div>
-                    </InputWrapper>                    
-                    <button >
-                        Salvar alterações
-                    </button>
+                    </InputWrapper>
+                    <div className="buttons">                    
+                        <Button  className="buttonDelete" title="Excluir prato" />
+                        <Button className="buttonSave" title="Salvar alterações" />
+                    </div>
                 </Form>
             </main>
 

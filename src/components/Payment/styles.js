@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.form`
     width: 35rem;
-    height: 27.4rem;
+    height: auto;
 
 
     div{

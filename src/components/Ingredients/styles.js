@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.span`
-     width: 75px;  
+    width: 75px;
     
     > span {
         img {

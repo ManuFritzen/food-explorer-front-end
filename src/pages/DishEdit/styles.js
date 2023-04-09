@@ -44,20 +44,37 @@ export const Container = styled.div`
 
 export const Form = styled.form`
     width: 100%;
+
+    .buttons{
+        display: flex;
+        justify-content: flex-end;
+        gap: 32px;
+    }
+
+    .buttonDelete{
+        width: 180px;
+        height: 48px;
+        background: #0D161B;
+;   
+        border-radius: 5px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: #FFFFFF;
+    }
     
-        button {
-          width: 172px;
-          height: 48px;
-          background:#AB4D55;
-          border: 1px solid #FFFFFF;
-          border-radius: 5px;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 24px;
-          color: #FFFFFF;
-          position: absolute;
-          right: 125px;
-        }
+        
+    .buttonSave {
+        width: 200px;
+        height: 48px;
+        background:#AB4D55;
+        border: 1px solid #FFFFFF;
+        border-radius: 5px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: #FFFFFF;
+    }   
     
 `;
 

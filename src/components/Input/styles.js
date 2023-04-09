@@ -8,24 +8,21 @@ export const Container = styled.div`
     color: ${({theme}) => theme.COLORS.WHITE};
     border: 1px solid ${({theme}) => theme.COLORS.WHITE};
     border-radius: 10px;
-    height: 56px;
-    
-    input {
-        height: 56px;
-        width: 100%;;
-        padding: 12px;
-        color: ${({theme}) => theme.COLORS.WHITE};
-        background: transparent;
-        border: none;
-        font-size: 18px;
-        &::placeholder {
-            color: ${({theme}) => theme.COLORS.GRAY_2};
-        }
-    
-        
-    }
-    
+    height: 56px;  
     svg {
         margin-left: 16px;
+    }
+`;
+
+export const Inputs = styled.input`
+    height: 56px;
+    width: 100%;;
+    padding: 12px;
+    color: ${({theme}) => theme.COLORS.WHITE};
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    &::placeholder {
+        color: ${({theme}) => theme.COLORS.GRAY_2};
     }
 `;

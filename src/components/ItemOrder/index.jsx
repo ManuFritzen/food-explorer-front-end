@@ -1,7 +1,6 @@
 import { Container } from './styles'
 
-export function ItemOrder({qntd, title, price}){
-    let imagem = "../../../src/assets/boloDamasco.png"
+export function ItemOrder({qntd, title, price, image}){
 
     let totalPrice = qntd * price
 
@@ -9,7 +8,7 @@ export function ItemOrder({qntd, title, price}){
         <Container>
 
         <img 
-            src={imagem}
+            src={image}            
             alt="Foto do prato"
         />
 

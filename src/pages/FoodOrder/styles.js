@@ -55,12 +55,13 @@ export const Main = styled.main`
 
     .paymentBox{
         margin-top: 3.2rem;
-        height: 44.5rem;
+        height: auto;
         border: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 5rem;
+        padding-bottom: 48px;
     }
 
     .paymentMethods__wrapper{

@@ -1,4 +1,11 @@
-import {Container} from "./styles";
+import {
+    Container,
+    HeaderLogo,
+    HeaderLogoImage,
+    HeaderLogoText,
+    HeaderButtonsIcons,
+    HeaderExit,   
+} from "./styles";
 import { FiSearch, FiUser, FiHeart } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
@@ -17,18 +24,18 @@ export function Header(){
     return(
         <Container>
             
-            <div className="logo">
-                <img src={Logo} alt="Logo" />
-                <h1>food explorer</h1>
-            </div>
+            <HeaderLogo>
+                <HeaderLogoImage src={Logo} alt="Logo" />
+                <HeaderLogoText>food explorer</HeaderLogoText>
+            </HeaderLogo>
 
-            <div className="buttonIcons">
+            <HeaderButtonsIcons>
                 <ButtonText className="heart"  icon={FiHeart} /> 
 
                 <Link to="/profile">
                     <ButtonText icon={FiUser}/>           
                 </Link>
-            </div>
+            </HeaderButtonsIcons>
 
             <Input className="input"           
             icon={FiSearch}
@@ -39,9 +46,8 @@ export function Header(){
                 <Button icon={Coupon} title="Meu pedido (0)" />
             </Link>
 
-            <button className="logout">
-                <img src={Exit} alt="sair" />
-            </button>
+            <HeaderExit src={Exit} alt="sair"/>
+            
 
         </Container>
     )

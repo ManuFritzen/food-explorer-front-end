@@ -13,6 +13,8 @@ import { ItemOrder } from '../../components/ItemOrder';
 import { Payment } from '../../components/Payment';
 import { Footer } from '../../components/Footer';
 
+import Ameixa from '../../assets/boloDamasco.png'
+
 export function FoodOrder(){
 
     const [paymentType, setPaymentType] = useState('card');
@@ -28,6 +30,29 @@ export function FoodOrder(){
         setPaymentType('card');
     }
 
+    /*Mocando o back */
+
+    const dishesPayment = [
+        {
+            image: Ameixa,
+            quant: 1,
+            title: 'torrada de parma',
+            price: 79.97
+        },
+        {
+            image: Ameixa,
+            quant: 2,
+            title: 'spagueti',
+            price: 79.97
+        },
+    ]
+
+    let totalPrice = 0;
+
+    dishesPayment.forEach(dish => {
+        totalPrice += dish.price * dish.quant;
+    });
+
     return(
         <Container>
             <Header/>
@@ -37,37 +62,16 @@ export function FoodOrder(){
                 <section className='allOrders'>
                     <h2>Meu pedido</h2>
 
-                    <ItemOrder
-                    qntd={1}
-                    title={"Torradas de Parma"}
-                    price={79.97}
-                    />
+                    {dishesPayment.map(prato => (<ItemOrder
+                        image={prato.image}
+                        qntd={prato.quant}
+                        title={prato.title}
+                        price={prato.price}
+                    />))}
 
-                    <ItemOrder
-                    qntd={3}
-                    title={"Torradas de Parma"}
-                    price={25.97}
-                    />
-
-                    <ItemOrder
-                    qntd={2}
-                    title={"Bolo de damasco"}
-                    price={19.97}
-                    />
                     
-                    <ItemOrder
-                    qntd={2}
-                    title={"Bolo de damasco"}
-                    price={19.97}
-                    />
 
-                    <ItemOrder 
-                    qntd={2}
-                    title={"Bolo de damasco"}
-                    price={19.97}
-                    />
-
-                    <span className='priceItems'>Total: R$ 197,82</span>
+                    <span className='priceItems'>Total: R$ {totalPrice}</span>
                 </section>
 
 

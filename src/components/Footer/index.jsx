@@ -1,15 +1,21 @@
-import {Container} from "./styles";
+import {
+    Container,
+    LogoFooter,
+    LogoImageFooter,
+    LogoTextFooter,
+    FooterText,
+} from "./styles";
 import Logo from "../../assets/logoGray.svg";
 
 export function Footer(){
     return(
         <Container>
-            <div className="logo">
-                <img src={Logo} alt="Logo" />
-                <h1>food explorer</h1>
-            </div>
+            <LogoFooter className="logo">
+                <LogoImageFooter src={Logo} alt="Logo" />
+                <LogoTextFooter>food explorer</LogoTextFooter>
+            </LogoFooter>
 
-            <h2>© 2022 - Todos os direitos reservados.</h2>
+            <FooterText>© 2022 - Todos os direitos reservados.</FooterText>
 
         </Container>
     )

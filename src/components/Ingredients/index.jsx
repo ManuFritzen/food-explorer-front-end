@@ -29,34 +29,32 @@ import Whisky from "../../assets/whisky.png";
 export function Ingredients({ IngredientsName }) {
 
     return (
-      <Container>
-          <span>{IngredientsName == "alface" ? <img src={Alface} alt=""/> : ""}</span>
-          <span>{IngredientsName == "ameixa" ? <img src={Ameixa} alt=""/> : ""}</span>
-          <span>{IngredientsName == "amêndoas" ? <img src={Amendoas} alt=""/> : ""}</span>
-          <span>{IngredientsName == "aniz" ? <img src={Aniz} alt=""/> : ""}</span>
-          <span>{IngredientsName == "café" ? <img src={Cafe} alt=""/> : ""}</span>
-          <span>{IngredientsName == "camarão" ? <img src={Camarao} alt=""/> : ""}</span>
-          <span>{IngredientsName == "canela" ? <img src={Canela} alt=""/> : ""}</span>
-          <span>{IngredientsName == "damasco" ? <img src={Damasco} alt=""/> : ""}</span>
-          <span>{IngredientsName == "farinha" ? <img src={Farinha} alt=""/> : ""}</span>
-          <span>{IngredientsName == "limão" ? <img src={Limao} alt=""/> : ""}</span>
-          <span>{IngredientsName == "maçã" ? <img src={Maca} alt=""/> : ""}</span>
-          <span>{IngredientsName == "macarons" ? <img src={Macarons} alt=""/> : ""}</span>
-          <span>{IngredientsName == "maracujá" ? <img src={Maracuja} alt=""/> : ""}</span>
-          <span>{IngredientsName == "massa" ? <img src={Massa} alt=""/> : ""}</span>
-          <span>{IngredientsName == "ovo" ? <img src={Ovo} alt=""/> : ""}</span>
-          <span>{IngredientsName == "pão" ? <img src={Pao} alt=""/> : ""}</span>
-          <span>{IngredientsName == "pão naan" ? <img src={PaoNaan} alt=""/> : ""}</span>
-          <span>{IngredientsName == "pepino" ? <img src={Pepino} alt=""/> : ""}</span>
-          <span>{IngredientsName == "pessêgo" ? <img src={Pessego} alt=""/> : ""}</span>
-          <span>{IngredientsName == "pesto" ? <img src={Pesto} alt=""/> : ""}</span>
-          <span>{IngredientsName == "presunto" ? <img src={Presunto} alt=""/> : ""}</span>
-          <span>{IngredientsName == "rabanete" ? <img src={Rabanete} alt=""/> : ""}</span>
-          <span>{IngredientsName == "rúcula" ? <img src={Rucula} alt=""/> : ""}</span>
-          <span>{IngredientsName == "tomate" ? <img src={Tomate} alt=""/> : ""}</span>
-          <span>{IngredientsName == "whisky" ? <img src={Whisky} alt=""/> : ""}</span>
-        
-  
-      </Container>
-      );
-  }
+        <Container>
+            <span>{IngredientsName == "alface" ? <img src={Alface} alt=""/> : ""}</span>
+            <span>{IngredientsName == "ameixa" ? <img src={Ameixa} alt=""/> : ""}</span>
+            <span>{IngredientsName == "amêndoas" ? <img src={Amendoas} alt=""/> : ""}</span>
+            <span>{IngredientsName == "aniz" ? <img src={Aniz} alt=""/> : ""}</span>
+            <span>{IngredientsName == "café" ? <img src={Cafe} alt=""/> : ""}</span>
+            <span>{IngredientsName == "camarão" ? <img src={Camarao} alt=""/> : ""}</span>
+            <span>{IngredientsName == "canela" ? <img src={Canela} alt=""/> : ""}</span>
+            <span>{IngredientsName == "damasco" ? <img src={Damasco} alt=""/> : ""}</span>
+            <span>{IngredientsName == "farinha" ? <img src={Farinha} alt=""/> : ""}</span>
+            <span>{IngredientsName == "limão" ? <img src={Limao} alt=""/> : ""}</span>
+            <span>{IngredientsName == "maçã" ? <img src={Maca} alt=""/> : ""}</span>
+            <span>{IngredientsName == "macarons" ? <img src={Macarons} alt=""/> : ""}</span>
+            <span>{IngredientsName == "maracujá" ? <img src={Maracuja} alt=""/> : ""}</span>
+            <span>{IngredientsName == "massa" ? <img src={Massa} alt=""/> : ""}</span>
+            <span>{IngredientsName == "ovo" ? <img src={Ovo} alt=""/> : ""}</span>
+            <span>{IngredientsName == "pão" ? <img src={Pao} alt=""/> : ""}</span>
+            <span>{IngredientsName == "pão naan" ? <img src={PaoNaan} alt=""/> : ""}</span>
+            <span>{IngredientsName == "pepino" ? <img src={Pepino} alt=""/> : ""}</span>
+            <span>{IngredientsName == "pessêgo" ? <img src={Pessego} alt=""/> : ""}</span>
+            <span>{IngredientsName == "pesto" ? <img src={Pesto} alt=""/> : ""}</span>
+            <span>{IngredientsName == "presunto" ? <img src={Presunto} alt=""/> : ""}</span>
+            <span>{IngredientsName == "rabanete" ? <img src={Rabanete} alt=""/> : ""}</span>
+            <span>{IngredientsName == "rúcula" ? <img src={Rucula} alt=""/> : ""}</span>
+            <span>{IngredientsName == "tomate" ? <img src={Tomate} alt=""/> : ""}</span>
+            <span>{IngredientsName == "whisky" ? <img src={Whisky} alt=""/> : ""}</span>  
+        </Container>
+    );
+}

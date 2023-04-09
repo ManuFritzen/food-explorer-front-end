@@ -26,8 +26,7 @@ export const Container = styled.form`
     form{
         width: 476px;       
         padding: 64px;
-        border-radius: 16px;
-       
+        border-radius: 16px;       
         
 
         background: ${({theme}) => theme.COLORS.BACKGROUND_SECUNDARY};
