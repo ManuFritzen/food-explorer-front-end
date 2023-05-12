@@ -1,52 +1,90 @@
 import {
     Container,
-    HeaderLogo,
-    HeaderLogoImage,
-    HeaderLogoText,
-    HeaderButtonsIcons,
-    HeaderExit,   
+    HeaderMenu,
+    HeaderLogo,    
+    HeaderExit,
+    CouponAmount,
+    AmountNumber,
+    CouponImg,
+    MenuMobile,
+    MenuTitle,
 } from "./styles";
-import { FiSearch, FiUser, FiHeart } from "react-icons/fi";
-
+import { FiSearch, FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
-import Logo from "../../assets/logo.svg";
+import { Logo } from "../Logo";
 import Coupon from "../../assets/coupon.svg";
 import Exit from "../../assets/exit.svg";
-
-
-import {ButtonText} from "../ButtonText";
 import {Button} from "../Button";
 import {Input} from "../Input";
 
-export function Header(){   
+export function Header(){ 
+
+    function MenuOpen(){
+        const menuHamburguer = document.querySelector(".menuHamburguer");
+        const menuMobileDiv = document.querySelector(".menuMobileDiv");
+        const logo = document.querySelector(".logo");
+        const coupon = document.querySelector(".coupon");
+        const menuTitle = document.querySelector(".menuTitle");
+        
+        menuMobileDiv.style.display = "block";          
+        logo.style.display = "none";            
+        coupon.style.display = "none";          
+        menuTitle.style.display = "block";
+        menuHamburguer.style.display = "none";           
+        
+    }
+
+    function MenuClose(){
+        const menuTitle = document.querySelector(".menuTitle");
+        const menuHamburguer = document.querySelector(".menuHamburguer");
+        const menuMobileDiv = document.querySelector(".menuMobileDiv");
+        const logo = document.querySelector(".logo");
+        const coupon = document.querySelector(".coupon");
+        
+        menuMobileDiv.style.display = "none";          
+        logo.style.display = "block";            
+        coupon.style.display = "block";          
+        menuHamburguer.style.display = "block";
+        menuTitle.style.display = "none";
+        
+        window.location.reload();        
+    }
+    
+    
 
     return(
         <Container>
+
+            <HeaderMenu >
+                <FiMenu className="menuHamburguer" size={24} onClick={MenuOpen}/>
+                <MenuTitle className="menuTitle" onClick={MenuClose}>X Menu</MenuTitle>
+            </HeaderMenu>
             
-            <HeaderLogo>
-                <HeaderLogoImage src={Logo} alt="Logo" />
-                <HeaderLogoText>food explorer</HeaderLogoText>
+            <HeaderLogo className="logo">
+                <Logo className="logoHeader"/>
             </HeaderLogo>
 
-            <HeaderButtonsIcons>
-                <ButtonText className="heart"  icon={FiHeart} /> 
+            <MenuMobile className="menuMobileDiv">
+                <Input className="input"           
+                icon={FiSearch}
+                placeholder="Busque por pratos ou ingredientes"
+                />
 
-                <Link to="/profile">
-                    <ButtonText icon={FiUser}/>           
+                <Link className="foodOrder" to="/foodOrder">
+                    <Button icon={Coupon} title="Meu pedido (0)" />
                 </Link>
-            </HeaderButtonsIcons>
+                <HeaderExit src={Exit} alt="sair"/>
+            </MenuMobile>            
 
-            <Input className="input"           
-            icon={FiSearch}
-            placeholder="Busque pelas opções de pratos"
-            />
-
-            <Link className="foodOrder" to="/foodOrder">
-                <Button icon={Coupon} title="Meu pedido (0)" />
+            <Link className="coupon-link" to="/foodOrder">
+                <CouponAmount className="coupon">
+                    <AmountNumber className="amount-order">0</AmountNumber>
+                    
+                    <CouponImg src={Coupon} alt="Coupon"/>
+                </CouponAmount>
             </Link>
-
-            <HeaderExit src={Exit} alt="sair"/>
+                
+            
             
 
         </Container>

@@ -12,56 +12,56 @@ export const Container = styled.div`
    "content"
    "footer";
 
-   .content{
-    
-    grid-area: content;
-    width: 100%;
-    padding: 128px;
-    margin-top: 32px;
-   }
-
-   .banner{
-    width: 100%;
-    height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    position: relative;
-   
-    
-
-    background: linear-gradient(180deg, ${({theme}) => theme.COLORS.BANNER_CLEAR} 0%, ${({theme}) => theme.COLORS.BANNER_DARK} 100%);
-    border-radius: 8px;
-
-    margin-bottom:62px;
-
-    >img{
-        position: absolute;
-        bottom: 0px;
-        left: -53px;
-        display: inline-block;    
-
-    }
-
-    h1{
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 40px;
-        line-height: 140%;
-        color: ${({theme}) => theme.COLORS.GRAY_1};   
-
-    }
-
-    h2{   
-        padding-right: 48px;
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 140%;
-    }
-}
+   //.content{
+   // 
+   // grid-area: content;
+   // width: 100%;
+   // padding: 128px;
+   // margin-top: 32px;
+   //}
+//
+   //.banner{
+   // width: 100%;
+   // height: 260px;
+   // display: flex;
+   // align-items: center;
+   // justify-content: end;
+   // position: relative;
+   //
+   // 
+//
+   // background: linear-gradient(180deg, ${({theme}) => theme.COLORS.BANNER_CLEAR} 0%, ${({theme}) => theme.COLORS.BANNER_DARK} 100%);
+   // border-radius: 8px;
+//
+   // margin-bottom:62px;
+//
+   // >img{
+   //     position: absolute;
+   //     bottom: 0px;
+   //     left: -53px;
+   //     display: inline-block;    
+//
+   // }
+//
+   // h1{
+   //     font-family: 'Poppins';
+   //     font-style: normal;
+   //     font-weight: 500;
+   //     font-size: 40px;
+   //     line-height: 140%;
+   //     color: ${({theme}) => theme.COLORS.GRAY_1};   
+//
+   // }
+//
+   // h2{   
+   //     padding-right: 48px;
+   //     font-family: 'Poppins';
+   //     font-style: normal;
+   //     font-weight: 400;
+   //     font-size: 16px;
+   //     line-height: 140%;
+   // }
+//}
 `;
 
 

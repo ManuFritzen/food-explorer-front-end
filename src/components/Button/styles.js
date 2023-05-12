@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-    width: 100%;
+    width: 216px;
     height: 56px;
     border: none;
     display: flex;
@@ -11,8 +11,8 @@ export const Container = styled.button`
     background: ${({theme}) => theme.COLORS.RED};
     color: ${({ theme }) => theme.COLORS.WHITE};
 
-    border-radius: 10px;
-    padding: 16px 36px 16px 36px;
+    border-radius: 5px;
+    padding: 16px 30px 16px 30px;
     gap: 11px;
 
     font-family: 'Poppins', sans-serif;

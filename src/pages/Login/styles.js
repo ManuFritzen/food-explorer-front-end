@@ -1,53 +1,64 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const Container = styled.div`
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    padding-top: 110px;
+    gap: 64px;
+    //border: 1px solid red;
 
-    .logo{
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        gap: 19.01px;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 50px;
-
-        img{
-            width: 49.03px;
-        }
-
+    @media screen and  (min-width: 1000px){
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 90px;
+        padding-right: 108px;
+        margin: auto;
+               
     }
+`;
 
-    form{
-        width: 476px;       
-        padding: 64px;
-        border-radius: 16px;
-       
-        
+export const LoginForm = styled.form`
+    width: 316px;       
+    border-radius: 16px;   
+    //background: ${({theme}) => theme.COLORS.BACKGROUND_SECUNDARY};
+    //border: 1px solid red;
+    margin: auto;
 
+
+    .button{
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+    
+    @media screen and  (min-width: 768px){
+        width: 476px;
         background: ${({theme}) => theme.COLORS.BACKGROUND_SECUNDARY};
+        padding: 64px;
+        margin-bottom: 10px;
+    }
+`;
 
-        h2{
-            margin-top:32px;
-            margin-bottom: 10px;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 100%;
-            color: ${({theme}) => theme.COLORS.GRAY_2};
-        }
+export const LoginTitle = styled.h1`
+    display: none;
 
-        .button{
-            margin-top: 32px;
-            margin-bottom: 32px;
-        }
+    @media screen and  (min-width: 768px){
+        display: block;
+    }
+`;
 
-       
+export const LoginLabel = styled.h2`
+    margin-bottom: 8px;
+    margin-top: 32px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: ${({theme}) => theme.COLORS.GRAY_2};
+
+    @media screen and  (min-width: 768px){
+        width: 348px;
     }
 `

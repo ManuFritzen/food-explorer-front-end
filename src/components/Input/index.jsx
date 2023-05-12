@@ -5,7 +5,7 @@ import {
 
 export function Input({ icon : Icon, ...rest }) {
     return(
-        <Container>
+        <Container >
             {Icon && <Icon size={"20"}/>}
             <Inputs {...rest} />
         </Container>

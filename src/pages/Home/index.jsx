@@ -19,8 +19,7 @@ export function Home(){
     {
       image: Espsguete,
       title: "Spaguetti Gambe",
-      price: 89.70
-     
+      price: 89.70     
     },
     {
       image: Espsguete,
@@ -64,70 +63,7 @@ export function Home(){
   return(
     <Container>
       <Header />
-
-      <div className="content">
-
-        <section className="banner">
-          <img src={Imagem} alt="Imagem banner" />
-          <div>
-            <h1>Sabores inigualáveis</h1>
-            <h2>Sinta o cuidado do preparo com ingredientes selecionados</h2>
-          </div>
-
-        </section>
-
-        <Options title="Pratos principais" >
-          <Carousel>
-                       
-              {listaPratos.map(prato => (<DishCard
-                image={prato.image}
-                title={prato.title}
-                text={prato.text}
-                price={prato.price}
-              />))}
-                         
-          </Carousel>
-        
-       
-        
-       
-        </Options> 
-
-        <Options title="Sobremesas" >
-        <Carousel>
-                       
-              {listaPratos.map(prato => (<DishCard
-                title={prato.title}
-                price={prato.price}
-              />))}
-                         
-          </Carousel> 
-       
-        </Options>
-
-        <Options title="Bebidas" >
-        <Carousel>
-                       
-              {listaPratos.map(prato => (<DishCard
-                title={prato.title}
-                price={prato.price}
-              />))}
-                         
-          </Carousel> 
-       
-        </Options>
-       
-
-
-      </div>
-
-      <Footer/>
-
-    
-    
-   
-
-   
+      
     </Container>
     
   )
