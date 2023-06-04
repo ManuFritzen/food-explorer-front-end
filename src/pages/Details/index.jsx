@@ -8,7 +8,6 @@ import {
   DetailDescription,
   DetailIngredients,
   DetailPrice,
-  Price,
   DetailCount,
   DetailOperation 
 } from "./styles";
@@ -54,8 +53,7 @@ export function Details(){
                   <IngredientTag title="pepino" />           
                 </DetailIngredients>
                 <DetailPrice>
-                  <Price>R$ 25,97</Price>
-                  <DetailCount>
+                 <DetailCount>
                     <DetailOperation>
                       -
                     </DetailOperation> 
@@ -64,7 +62,7 @@ export function Details(){
                       +
                     </DetailOperation>
                   </DetailCount>
-                  <Button icon={Coupon} title="incluir"/>
+                  <Button className="button" icon={Coupon} title="Pedir - R$ 00,00"/>
                 </DetailPrice>
               </DetailInformation>
             </Content>         

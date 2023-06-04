@@ -3,8 +3,8 @@ import {
     DishCardImage,
     DishCardContent,
     DishCardTitle,
-    DishCardDescription,
     DishCardControl,
+    DishCardCount,
     DishCardFavorites,
     DishCardPrice
 } from './styles';
@@ -39,23 +39,25 @@ export function DishCard(props) {
             {
                 user.name !== "admin" ?
                 <>
-                    <DishCardImage src={props.image} alt={props.alt} />
-                    <DishCardContent>
-                        <DishCardTitle>
-                            {props.title}
-                        </DishCardTitle>
-                        <DishCardDescription>
-                            {props.text}
-                        </DishCardDescription>
-                        <DishCardPrice>R$ {props.price}</DishCardPrice>
-                    </DishCardContent>
+                    <Link to="/details" className='linkDetails'>
+                        <DishCardImage src={props.image} alt={props.alt} />
+                        <DishCardContent>
+                            <DishCardTitle>
+                                {props.title}
+                            </DishCardTitle>                        
+                            <DishCardPrice>R$ {props.price}</DishCardPrice>
+                        </DishCardContent>
+                    </Link>
 
                     <DishCardControl>
-                        <span onClick={removeDish}>-</span>
-                        <span>{dishAdd<10?`0${dishAdd}`:dishAdd}</span>
-                        <span onClick={addDish}>+</span>
+                        <DishCardCount>
+                            <span onClick={removeDish}>-</span>
+                            <span>{dishAdd<10?`0${dishAdd}`:dishAdd}</span>
+                            <span onClick={addDish}>+</span>
 
-                        <Button title={"Incluir"}/>
+                        </DishCardCount>
+
+                        <Button className="buttonControl" title={"Incluir"}/>
                     </DishCardControl>
 
                     <DishCardFavorites>

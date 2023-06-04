@@ -12,11 +12,21 @@ export const Container = styled.div `
     position: relative;
     margin-bottom: 24px;
     gap: 12px;
-    padding : 70px 24px;
+    padding : 24px;
+
+    .linkDetails{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
 
     @media screen and (min-width: 1000px) {
         width: 304px;
-        gap: 15px;        
+        gap: 15px; 
+        
+        .linkDetails{
+            gap: 15px;
+        }
     }
     
 `;
@@ -28,6 +38,8 @@ export const DishCardImage = styled.img`
     height: 88px;
     border-radius: 50%;
     z-index: 99;
+    cursor:pointer;
+    margin: auto;
 
     @media screen and (min-width: 1000px) {
         width: 176px;
@@ -62,20 +74,37 @@ export const DishCardTitle = styled.h3`
         font-size: 24px;
     }
 `;
-
-export const DishCardDescription = styled.p`
-    font-weight: 400;
-    font-size: 14px;
-    text-align: center;
-    color: ${({theme}) => theme.COLORS.GRAY_200};
-    margin-bottom: 16px;
-`;
-
 export const DishCardControl = styled.div`
+width: 100%;
+    align-items: center;
+    font-size: 20px;
+
+
+    .buttonControl{
+        width : 100% ;
+        height:32px;
+        margin-top: 16px;
+    }
+
+    @media screen and (min-width: 1000px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 16px;
+
+        .buttonControl{
+            width: max-content;
+            height: 48px;
+        }
+    }
+
+`;
+export const DishCardCount = styled.div`
+    height: 48px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    font-size: 20px;
+    justify-content: center;
+    gap: 14px;
 
     >span:nth-child(1){
         cursor: pointer;
@@ -83,7 +112,6 @@ export const DishCardControl = styled.div`
     >span:nth-child(3){
         cursor: pointer;
     }
-
 `;
 
 export const DishCardPrice = styled.p`

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +15,7 @@ export const DetailMain = styled.main`
 `;
 
 export const Content = styled.div`
+    min-height: 62vh;
     width: 316px;
     display: flex;
     flex-direction: column;
@@ -106,14 +108,8 @@ export const DetailPrice = styled.div`
     align-items: center;
     gap: 40px;
     margin-top: 40px;
-`;
-
-export const Price = styled.strong`
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 160%;
-    text-align: center;
-    color: #82F3FF;
+    margin-bottom: 100px;
+  
 `;
 
 export const DetailCount = styled.div`
@@ -122,6 +118,7 @@ export const DetailCount = styled.div`
     gap: 18px;
     font-size: 20px;
     line-height: 160%;
+
 `;
 
 export const DetailOperation = styled.span`
