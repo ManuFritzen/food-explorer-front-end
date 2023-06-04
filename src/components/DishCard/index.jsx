@@ -14,9 +14,12 @@ import { FiHeart } from 'react-icons/fi';
 import {GoPencil} from 'react-icons/go'
 import { useAuth } from '../../hooks/auth';
 import { Link } from 'react-router-dom';
+import { api } from '../../services/api';
 
 export function DishCard(props) {
     const {user} = useAuth();
+    const imageUrl = `${api.defaults.baseURL}/files/dishes/${props.image}`;
+
 
     const[ dishAdd, setDishAdd] = useState(1);
     
@@ -39,8 +42,8 @@ export function DishCard(props) {
             {
                 user.name !== "admin" ?
                 <>
-                    <Link to="/details" className='linkDetails'>
-                        <DishCardImage src={props.image} alt={props.alt} />
+                    <Link to={`/details/${props.id}`} className='linkDetails'>
+                        <DishCardImage src={imageUrl} alt={props.alt} />
                         <DishCardContent>
                             <DishCardTitle>
                                 {props.title}
@@ -75,7 +78,7 @@ export function DishCard(props) {
                     </DishCardContent>                    
 
                     <DishCardFavorites>
-                        <Link className='linkPencil' to="/details">
+                        <Link className='linkPencil' to={`/details/${props.id}`}>
                             <GoPencil/>
                         </Link>
                     </DishCardFavorites>
