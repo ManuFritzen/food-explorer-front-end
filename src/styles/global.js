@@ -9,6 +9,7 @@ export default createGlobalStyle`
     }
 
     body{
+        overflow-x: hidden;
         background: ${({theme})  => theme.COLORS.BACKGROUND_PRIMARY };
         color: ${({theme})  => theme.COLORS.WHITE };
         font-family: 'Roboto', sans-serif;

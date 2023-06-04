@@ -5,16 +5,15 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 110px;
+    padding: 6%;
     gap: 64px;
     //border: 1px solid red;
 
     @media screen and  (min-width: 1000px){
+        height: 100vh;
         flex-direction: row;
-        justify-content: space-around;
-        padding-top: 90px;
-        padding-right: 108px;
-        margin: auto;               
+        align-items: center;
+        justify-content: center;              
     }
 `;
 
@@ -29,6 +28,7 @@ export const LoginForm = styled.form`
     .button{
         margin-top: 32px;
         margin-bottom: 32px;
+        width: 100%;
     }
     
     @media screen and  (min-width: 768px){

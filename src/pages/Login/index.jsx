@@ -38,6 +38,7 @@ export function Login(){
                 />
                 <LoginLabel>Senha</LoginLabel>
                 <Input
+                type="password"
                 className="login"
                 placeholder="No mínimo 6 caracteres"
                 onChange={e=> setPassword(e.target.value)}

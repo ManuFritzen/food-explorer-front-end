@@ -56,6 +56,7 @@ export function Register(){
             />
             <LoginLabel>Senha</LoginLabel>
             <Input
+            type="password"
             placeholder="No mínimo 6 caracteres"
             onChange = {e => setPassword(e.target.value)}
             />

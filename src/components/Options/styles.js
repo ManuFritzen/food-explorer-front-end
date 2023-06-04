@@ -1,25 +1,32 @@
 import styled from "styled-components";
 
 export const Container = styled.span`
-width: 100%;
+    
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    margin-left: 24px;
 
-   h2{
+    @media screen and (min-width: 1024px){
+        margin: 0 124px;
+    }
+`;
+
+export const OptionsTitle = styled.h2`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 32px;
+    font-size: 18px;
     line-height: 140%;
-    margin-bottom: 39.5px;
-   }
 
-    div{
-        width:100%;
-        display: flex;
-        gap: 27px;
-        align-items: center;
+    @media screen and (min-width: 1000px){
+        font-size: 32px;
+        margin-bottom: 23px;
     }
+`;
+
+export const OptionsContent = styled.div`
+    width:100%;
+    gap: 27px;
 `;

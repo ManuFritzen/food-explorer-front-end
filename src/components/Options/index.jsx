@@ -1,10 +1,13 @@
-import { Container } from './styles';
+import { Container,
+    OptionsTitle,
+    OptionsContent
+} from './styles';
 
 export function Options({ title, children }) {
     return(
         <Container>
-            <h2>{title}</h2>
-            <div>{children}</div>
+            <OptionsTitle>{title}</OptionsTitle>
+            <OptionsContent>{children}</OptionsContent>
         </Container>
     );
 }

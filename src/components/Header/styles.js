@@ -54,8 +54,8 @@ export const MenuTitle = styled.p`
     display: none;
 `;
 
-export const HeaderLogo = styled.div`
-    width: 390px;
+export const HeaderLogo = styled.img`
+    width: 197px;
 
     h1{
         font-size: 21px;
@@ -65,7 +65,12 @@ export const HeaderLogo = styled.div`
     }
 `;
 
-export const HeaderExit = styled.img`
+export const HeaderExit = styled.button`
+    background: none;
+    border: none;
+`;
+
+export const HeaderExitImage = styled.img`
     background: none;
     border: none;
     margin-top: 10px;

@@ -1,109 +1,103 @@
-import { Container, Form, InputWrapper, ImgPlate, InputItem } from "./styles";
+import { 
+    Container,
+    DishNewMain,
+    DishNewTitle, 
+    Form,
+    DishNewDivDesktop,
+    DishNewLabel,
+    DishNewLabelP,
+    DishNewSelect,
+    DishNewInputTextarea, 
+    InputWrapper    
+} from "./styles";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.svg"
-import Coupon from "../../assets/coupon.svg"
 import { Button } from "../../components/Button";
-import { IoIosArrowBack } from "react-icons/io";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { Footer } from "../../components/Footer";
 import { Input } from "../../components/Input";
-import { IngredientTag } from "../../components/IngredientTag";
-import { Textarea } from "../../components/Textarea";
+import { Header } from "../../components/Header";
+import { ButtonBackToPage } from "../../components/ButtonBackToPage";
 //import { useNavigate, useParams } from "react-router-dom";
 //import { useState, useEffect } from "react";
 
 
 export function DishNew() {
-    
-   
-
     return (
         <Container>
-            <header>
-                <div className="logo">
-                    <img src={Logo} alt="Logo" />
-                    <h1>food explorer</h1>
-                </div>
+            <Header/>
 
-                <div className="buttons">
-                    <span>Administrador</span>
-                    <Button icon={Coupon} title="Meu pedido (0)" />
-                </div>
-            </header>
-
-            <main>
+            <DishNewMain>
                 <Link to="/">
-                    <button className="button-back" >
-                        <IoIosArrowBack />
-                        voltar
-                    </button>
+                    <ButtonBackToPage/>
                 </Link>
-                <h2>Editar Prato</h2>
+                <DishNewTitle>Novo Prato</DishNewTitle>
                 <Form>
-                    <InputWrapper>
-                        <div>
-                            <span>Selecione imagem</span>
-                            <ImgPlate>
-                                <label htmlFor="file-img">Imagem do prato</label>
-
-                                <Input
-                                    id="file-img"
-                                    type="file"
-                                    placeholder="Selecione imagem"
-                                    icon={MdOutlineFileUpload}
-                                   
-                                />
-                            </ImgPlate>
-                        </div>
-
-                        <div className="flex">
-                            <label htmlFor="event-name">Nome</label>
+                    <DishNewDivDesktop>                        
+                        <DishNewLabel>
+                            <DishNewLabelP>
+                                Imagem do prato                            
+                            </DishNewLabelP>
                             <Input
-                                id="event-name"
-                                type="text"
-                                placeholder="Ex.: Salada Caesar"
-                               
+                                type="file"
+                                placeholder="Selecione imagem"
                             />
-                        </div>
-                    </InputWrapper>
-
-                    <InputWrapper>
-                        <div className="flex">
-                            <label htmlFor="plate-ingredientes">Ingredientes</label>
-
-                            <Input>
-                            </Input>                               
-                                    
-                               
-                           
-                        </div>
-
-                        <div>
-                            <label htmlFor="plate-price">Preço</label>
+                        </DishNewLabel>
+                        <DishNewLabel>
+                            <DishNewLabelP>
+                                Nome
+                            </DishNewLabelP>
                             <Input
                                 type="text"
-                                id="plate-price"
+                                placeholder="Ex.: Salada Ceasar"
+                            />
+                        </DishNewLabel>
+                        <DishNewLabel>
+                            <DishNewLabelP>
+                                Categoria
+                            </DishNewLabelP>
+                            <DishNewSelect >
+                                <option value="refeicao">Refeição</option>
+                                <option value="sobremesa">Sobremesa</option>
+                                <option value="bebida">Bebida</option>
+                            </DishNewSelect>
+                        </DishNewLabel>
+                    </DishNewDivDesktop>
+                    <DishNewDivDesktop>
+                        <DishNewLabel>
+                            <DishNewLabelP>
+                                Ingredientes
+                            </DishNewLabelP>
+                            <Input/>
+                        </DishNewLabel>
+                        <DishNewLabel>
+                            <DishNewLabelP>
+                                Preço
+                            </DishNewLabelP>
+                            <Input
+                                className="inputMoney"
+                                type="number"
                                 placeholder="R$ 00,00"
-                               
                             />
-                        </div>
-                    </InputWrapper>
-
-                    <InputWrapper>
-                        <div className="textarea">
-                            <label htmlFor="text-area">Descrição</label>
-                            <Textarea
-                                id="text-area"
-                                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-                               
-                            />
-                        </div>
-                    </InputWrapper>                    
-                    <button >
-                        Salvar alterações
-                    </button>
+                        </DishNewLabel>
+                    </DishNewDivDesktop>
+                    <DishNewDivDesktop>
+                        <DishNewLabel>
+                            <DishNewLabelP>
+                                Descrição
+                            </DishNewLabelP>
+                            <DishNewInputTextarea>
+                                Fale brevemente sobre o prato, seus ingredientes e composição
+                            </DishNewInputTextarea>
+                        </DishNewLabel>
+                    </DishNewDivDesktop>
+                    <Button
+                        className="button"
+                        type="submit"
+                        title="Salvar prato"
+                    />
+                    
                 </Form>
-            </main>
+            </DishNewMain>
 
             <Footer />
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
-    width: 300px;
+    width: 210px;
     background: rgba(0, 0, 0, 0.32);
     border: 1px solid rgba(0, 0, 0, 0.65);
     border-radius: 8px;
@@ -9,42 +9,61 @@ export const Container = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;   
-    padding : 40px;
+    position: relative;
+    margin-bottom: 24px;
+    gap: 12px;
+    padding : 70px 24px;
+
+    @media screen and (min-width: 1000px) {
+        width: 304px;
+        gap: 15px;        
+    }
     
 `;
 
 
 
 export const DishCardImage = styled.img`
-    width: 176px;
-    height: 176px;
+    width: 88px;
+    height: 88px;
     border-radius: 50%;
     z-index: 99;
-`
+
+    @media screen and (min-width: 1000px) {
+        width: 176px;
+        height: 176px;
+    }
+`;
 
 export const DishCardContent = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
 
-    > strong {
-        font-weight: 400;
-        font-size: 32px;
-        color: ${({theme}) => theme.COLORS.BLUE};
-        margin-bottom: 18px;
-    }
+    @media screen and (min-width: 1000px) {
+        gap: 15px;
+    }   
 `;
 
 export const DishCardTitle = styled.h3`
-    color: ${({theme}) => theme.COLORS.WHITE};
-    font-weight: 700;
-    font-size: 24px;
+    width: max-content;
+    color: #E1E1E6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+
+    @media screen and (min-width: 1000px) {
+        font-weight: 700;
+        font-size: 24px;
+    }
 `;
 
 export const DishCardDescription = styled.p`
-    width: 220px;
     font-weight: 400;
     font-size: 14px;
     text-align: center;
@@ -67,8 +86,17 @@ export const DishCardControl = styled.div`
 
 `;
 
-export const DishCardPrice = styled.strong`
-    font-size: 20px;
+export const DishCardPrice = styled.p`
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color:  #82F3FF; 
+
+    @media screen and (min-width: 1000px) {
+        font-size: 32px;
+    }
     
 `;
 
@@ -80,6 +108,10 @@ export const DishCardFavorites = styled.button`
     position: absolute;
     top: 16px;
     right: 16px;
+
+    .linkPencil{
+        color: ${({theme}) => theme.COLORS.WHITE};
+    }
 
     :hover{
         color: ${({theme}) => theme.COLORS.RED};        

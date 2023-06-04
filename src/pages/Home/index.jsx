@@ -1,5 +1,12 @@
 //import { useEffect, useState } from "react";
-import { Container} from "./styles.js";
+import { 
+  Container,
+  HomeSection,
+  HomeImgMacarrons,
+  HomeBannerText,
+  HomeTitle,
+  HomeText,
+} from "./styles.js";
 
 import Imagem from "../../assets/pngegg 1.png";
 import Espsguete from "../../assets/spaguetiGambe.png"
@@ -63,6 +70,47 @@ export function Home(){
   return(
     <Container>
       <Header />
+
+      <HomeSection >
+          <HomeImgMacarrons src={Imagem} alt="Imagem banner" />
+          <HomeBannerText>
+            <HomeTitle>
+              Sabores inigualáveis
+            </HomeTitle>
+            <HomeText>
+              Sinta o cuidado do preparo com ingredientes selecionados
+            </HomeText>
+          </HomeBannerText>
+      </HomeSection>
+        <Options title="Refeições" >
+          <Carousel>                       
+              {listaPratos.map(prato => (<DishCard
+                image={prato.image}
+                title={prato.title}
+                text={prato.text}
+                price={prato.price}
+              />))}                         
+          </Carousel>       
+        </Options> 
+        <Options title="Sobremesas" >
+          <Carousel>                       
+              {listaPratos.map(prato => (<DishCard
+                title={prato.title}
+                price={prato.price}
+              />))}                         
+          </Carousel>        
+        </Options>
+
+        <Options title="Bebidas" >
+          <Carousel>                       
+              {listaPratos.map(prato => (<DishCard
+                title={prato.title}
+                price={prato.price}
+              />))}                         
+          </Carousel>       
+        </Options>
+
+        <Footer/>
       
     </Container>
     
