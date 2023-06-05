@@ -1,25 +1,29 @@
+import { 
+    Container,
+    InputNewIngredient,
+    IngredientActionButton
+} from './styles'
 import { FiPlus, FiX } from 'react-icons/fi';
-import { Container } from './styles'
 
 export function IngredientsAction({isNew, value, onClick, ...rest}) {
 
     return(
         <Container isNew={isNew}>
-            <input 
+            <InputNewIngredient 
             type="text"
             value={value}
             readOnly={!isNew}
             {...rest}
             />
 
-            <button
+            <IngredientActionButton
             type="button"
             onClick={onClick}
             className={isNew ? 'button-add' : 'button-delete' }
             >
                 { isNew ? <FiPlus/> : <FiX/> }
 
-            </button>
+            </IngredientActionButton>
         </Container>
     );
 

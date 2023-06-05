@@ -76,7 +76,7 @@ export function Header(){
                         placeholder="Busque por pratos ou ingredientes"
                         />
 
-                        <Link className="foodOrder" to="/foodOrder">
+                        <Link className="foodOrder" to="/">
                             <Button icon={Coupon} title="Meu pedido (0)" />
                         </Link>
                         <HeaderExit onClick={signOut}>
@@ -84,7 +84,7 @@ export function Header(){
                         </HeaderExit>
                     </MenuMobile>            
 
-                    <Link className="coupon-link" to="/foodOrder">
+                    <Link className="coupon-link" to="/">
                         <CouponAmount className="coupon">
                             <AmountNumber className="amount-order">0</AmountNumber>
 

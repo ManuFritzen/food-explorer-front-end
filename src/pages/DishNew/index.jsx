@@ -48,22 +48,12 @@ export function DishNew() {
 
     async function handleNewDish(){
 
-        if(!name){
-            return alert("Dígite o título do prato")
-        }
-        
-        if(!price){
-            return alert("Adicione um preço ao prato")
-        }
-
-        if(!description){
-            return alert("Adicione uma descrição para o prato que deseja adicionar ao cardápio")
-        }
-
-
-        if(newIngredient){
+        if (!imageFile || !name || !description || !category || !price || !ingredients) {
+            return alert("preencha todos os campos")
+        }      
+        if (newIngredient) {
             return alert("Você deixou um ingrediente no campo para adicionar")
-        }   
+        }
 
         const formData = new FormData();
         formData.append("image", imageFile);

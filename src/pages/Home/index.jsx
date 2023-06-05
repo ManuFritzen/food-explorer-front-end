@@ -9,7 +9,6 @@ import {
 } from "./styles.js";
 
 import Imagem from "../../assets/pngegg 1.png";
-import Espsguete from "../../assets/spaguetiGambe.png"
 
 
 import {Header} from "../../components/Header";

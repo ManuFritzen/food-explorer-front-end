@@ -4,7 +4,7 @@ export const Container = styled.div`
     
 `;
 
-export const DishNewMain = styled.div`
+export const DishEditMain = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 32px 53px;
@@ -15,7 +15,7 @@ export const DishNewMain = styled.div`
   
 `;
 
-export const DishNewTitle = styled.p`
+export const DishEditTitle = styled.p`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
@@ -49,7 +49,7 @@ export const Form = styled.div`
     
 `;
 
-export const DishNewDivDesktop = styled.div`
+export const DishEditDivDesktop = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@ export const DishNewDivDesktop = styled.div`
   }
 `;
 
-export const DishNewSelect = styled.select`
+export const DishEditSelect = styled.select`
   background: ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
   border: none;
   padding: 16px;
@@ -75,7 +75,7 @@ export const DishNewSelect = styled.select`
 
 `;
 
-export const DishNewIngredients = styled.div`
+export const DishEditIngredients = styled.div`
     display: flex;
     gap: 1.6rem;
     width: 100%;
@@ -85,7 +85,7 @@ export const DishNewIngredients = styled.div`
 
 `;
 
-export  const DishNewInputTextarea = styled.textarea`
+export  const DishEditInputTextarea = styled.textarea`
   background: ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
   border: none;
   border-radius: 8px;
@@ -101,14 +101,14 @@ export  const DishNewInputTextarea = styled.textarea`
 
 `;
 
-export const DishNewLabel = styled.div`
+export const DishEditLabel = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
 `;
 
-export const DishNewLabelP = styled.p`
+export const DishEditLabelP = styled.p`
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -134,11 +134,4 @@ export const DishEditButtons = styled.div`
     justify-content: end;
     gap: 32px;
   }
-`;
-
-
-
-export const InputWrapper = styled.div`
-  
-  
 `;

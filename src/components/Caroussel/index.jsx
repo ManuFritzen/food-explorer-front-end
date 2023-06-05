@@ -1,22 +1,22 @@
-// Import de estilizações
-import { Container, Slider } from './styles'
-
-// Import de icones
+import { 
+    Container,
+    Slider,
+    SliderButton,
+    CarousselContent
+} from './styles'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-
-// Imports para o slider
 import { useRef } from 'react';
 
-export function Carousel({type, children}){
+export function Carousel({children}){
     const slider = useRef(null);
 
-    function handleLeftClickSlider(event) {
+    function handleLeftClick(event) {
         event.preventDefault();
     
         slider.current.scrollLeft -= slider.current.offsetWidth;
     }
     
-    function handleRightClickSlider(event) {
+    function handleRightClick(event) {
         event.preventDefault();
     
         slider.current.scrollLeft += slider.current.offsetWidth;
@@ -26,24 +26,24 @@ export function Carousel({type, children}){
         <Container>
 
             <Slider>
-                <button 
+                <SliderButton 
                 className='ArrowBack'
-                onClick={handleLeftClickSlider}
+                onClick={handleLeftClick}
                 >
                     <IoIosArrowBack size={40}/>
-                </button>
+                </SliderButton>
 
-                <div ref={slider}>
+                <CarousselContent ref={slider}>
                 {children}
-                </div>
+                </CarousselContent>
 
 
 
-                <button 
+                <SliderButton
                 className='ArrowForward'
-                onClick={handleRightClickSlider}>
+                onClick={handleRightClick}>
                     <IoIosArrowForward size={40}/>
-                </button>
+                </SliderButton>
             </Slider>
         </Container>
     )

@@ -1,20 +1,18 @@
 import { 
     Container,
-    DishNewMain,
-    DishNewTitle, 
+    DishEditMain,
+    DishEditTitle, 
     Form,
-    DishNewDivDesktop,
-    DishNewLabel,
-    DishNewLabelP,
-    DishNewSelect,
-    DishNewInputTextarea,
+    DishEditDivDesktop,
+    DishEditLabel,
+    DishEditLabelP,
+    DishEditSelect,
+    DishEditInputTextarea,
     DishEditButtons,
-    DishNewIngredients, 
-    InputWrapper    
+    DishEditIngredients, 
 } from "./styles";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
-import { MdOutlineFileUpload } from "react-icons/md";
 import { Footer } from "../../components/Footer";
 import { Input } from "../../components/Input";
 import { Header } from "../../components/Header";
@@ -59,30 +57,13 @@ export function DishEdit() {
     }
 
     async function handleEditDish(){
-        if (!imageFile) {
-            return alert("Adicione uma imagem para o prato")
-        }
-      
-        if (!name) {
-            return alert("Adicione um titulo para o prato")
-        }
-      
-        if (!description) {
-            return alert("Adicione uma descrição para o prato")
-        }
-      
-        if (!category) {
-            return alert("Adicione um categoria para o prato")
-        }
-      
-        if (!price) {
-            return alert("Adicione um preço para o prato")
-        }
-      
+        if (!name || !description || !category || !price ) {
+            return alert("preencha todos os campos")
+        }      
         if (newIngredient) {
             return alert("Você deixou um ingrediente no campo para adicionar")
         }
-      
+    
         api.put(`/dishes/${idDish}`, { name, description, price, category, ingredients })
 
         const formData= new FormData();
@@ -133,51 +114,51 @@ export function DishEdit() {
         <Container>
             <Header/>
 
-            <DishNewMain>
+            <DishEditMain>
                 <Link to="/">
                     <ButtonBackToPage/>
                 </Link>
-                <DishNewTitle>Editar Prato</DishNewTitle>
+                <DishEditTitle>Editar Prato</DishEditTitle>
                 <Form>
-                    <DishNewDivDesktop>                        
-                        <DishNewLabel>
-                            <DishNewLabelP>
+                    <DishEditDivDesktop>                        
+                        <DishEditLabel>
+                            <DishEditLabelP>
                                 Imagem do prato                            
-                            </DishNewLabelP>
+                            </DishEditLabelP>
                             <Input
                                 type="file"
                                 placeholder="Selecione imagem"
                                 onChange={e => setImageFile(e.target.files[0])}
                             />
-                        </DishNewLabel>
-                        <DishNewLabel>
-                            <DishNewLabelP>
+                        </DishEditLabel>
+                        <DishEditLabel>
+                            <DishEditLabelP>
                                 Nome
-                            </DishNewLabelP>
+                            </DishEditLabelP>
                             <Input
                                 type="text"
                                 placeholder={dish.name}
                                 value={name}
                                 onChange={event => setName(event.target.value)}
                             />
-                        </DishNewLabel>
-                        <DishNewLabel>
-                            <DishNewLabelP>
+                        </DishEditLabel>
+                        <DishEditLabel>
+                            <DishEditLabelP>
                                 Categoria
-                            </DishNewLabelP>
-                            <DishNewSelect value={category} onChange={e=>setCategory(e.target.value)}>
+                            </DishEditLabelP>
+                            <DishEditSelect placeholder={dish.category} value={category} onChange={e=>setCategory(e.target.value)}>
                                 <option value="refeição">Refeição</option>
                                 <option value="sobremesa">Sobremesa</option>
                                 <option value="bebida">Bebida</option>
-                            </DishNewSelect>
-                        </DishNewLabel>
-                    </DishNewDivDesktop>
-                    <DishNewDivDesktop>
-                        <DishNewLabel>
-                            <DishNewLabelP>
+                            </DishEditSelect>
+                        </DishEditLabel>
+                    </DishEditDivDesktop>
+                    <DishEditDivDesktop>
+                        <DishEditLabel>
+                            <DishEditLabelP>
                                 Ingredientes
-                            </DishNewLabelP>
-                            <DishNewIngredients>
+                            </DishEditLabelP>
+                            <DishEditIngredients>
                                 {ingredients.map((ingredient, index) => (
                                     <IngredientsAction
                                         key={String(index)}
@@ -192,33 +173,33 @@ export function DishEdit() {
                                     value={newIngredient}
                                     onClick={handleAddIngredient}
                                 />
-                            </DishNewIngredients>
-                        </DishNewLabel>
-                        <DishNewLabel>
-                            <DishNewLabelP>
+                            </DishEditIngredients>
+                        </DishEditLabel>
+                        <DishEditLabel>
+                            <DishEditLabelP>
                                 Preço
-                            </DishNewLabelP>
+                            </DishEditLabelP>
                             <Input
                                 className="inputMoney"
                                 type="number"
-                                placeholder="R$ 00,00"
+                                placeholder={dish.price}
                                 value={price}
                                 onChange={event => setPrice(event.target.value)}
                             />
-                        </DishNewLabel>
-                    </DishNewDivDesktop>
-                    <DishNewDivDesktop>
-                        <DishNewLabel>
-                            <DishNewLabelP>
+                        </DishEditLabel>
+                    </DishEditDivDesktop>
+                    <DishEditDivDesktop>
+                        <DishEditLabel>
+                            <DishEditLabelP>
                                 Descrição
-                            </DishNewLabelP>
-                            <DishNewInputTextarea
-                                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                            </DishEditLabelP>
+                            <DishEditInputTextarea
+                                placeholder={dish.description}
                                 value={description}
                                 onChange={e => setDescription(e.target.value)}
                             />                               
-                        </DishNewLabel>
-                    </DishNewDivDesktop>
+                        </DishEditLabel>
+                    </DishEditDivDesktop>
                     <DishEditButtons>
                         <Button
                             className="buttonDelete"
@@ -235,7 +216,7 @@ export function DishEdit() {
                     </DishEditButtons>
                     
                 </Form>
-            </DishNewMain>
+            </DishEditMain>
 
             <Footer />
 

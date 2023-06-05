@@ -18,38 +18,10 @@ export const Container = styled.div`
 export const Slider = styled.div`
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;   
 
-
-    > div {
-    display: flex;
-    gap: 2.7rem;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-        ::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    .ArrowBack,
-    .ArrowForward{
-        display: none;
-    }
-
-    @media screen and (min-width: 1024px) {
-        .ArrowBack,
-        .ArrowForward{
-            display: block;
-            color: ${({theme})=> theme.COLORS.WHITE};
-            z-index: 100;
-            border: none;
-            position: absolute;
-            width: 116px;
-            height: 100%;
-    
+    @media screen and (min-width: 900px) {
         
-        }
-    
         .ArrowBack{
             background: linear-gradient(270deg, rgba(0, 10, 15, 0.272541) 10%, #000A0F 100%);
             
@@ -61,11 +33,34 @@ export const Slider = styled.div`
         }    }
 
 
-    @media (max-width: 768px){
+    
+`;
 
-        > div {
-            display: flex;
-            gap: 1rem;
-        }   
+export const SliderButton = styled.button`
+    display: none;
+
+    @media screen and (min-width: 900px) {       
+        display: block;
+        color: ${({theme})=> theme.COLORS.WHITE};
+        z-index: 100;
+        border: none;
+        position: absolute;
+        width: 116px;
+        height: 100%;       
+    }
+`;
+
+export const CarousselContent = styled.div`
+    display: flex;
+    gap: 2.7rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (max-width: 768px){
+        display: flex;
+        gap: 1rem;
     }
 `;
