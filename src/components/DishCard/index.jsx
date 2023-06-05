@@ -69,16 +69,18 @@ export function DishCard(props) {
                 </>
                 :
                 <>
-                    <DishCardImage src={props.image} alt={props.alt} />
-                    <DishCardContent>
-                        <DishCardTitle>
-                            {props.title}
-                        </DishCardTitle>                        
-                        <DishCardPrice>R$ {props.price}</DishCardPrice>
-                    </DishCardContent>                    
+                    <DishCardImage src={imageUrl} alt={props.alt} />
+                    <Link to={`/details/${props.id}`}>
+                        <DishCardContent>
+                            <DishCardTitle>
+                                {props.title}
+                            </DishCardTitle>                        
+                            <DishCardPrice>R$ {props.price}</DishCardPrice>
+                        </DishCardContent>                    
+                    </Link>
 
                     <DishCardFavorites>
-                        <Link className='linkPencil' to={`/details/${props.id}`}>
+                        <Link className='linkPencil' to={`/dishEdit/${props.id}`}>
                             <GoPencil/>
                         </Link>
                     </DishCardFavorites>

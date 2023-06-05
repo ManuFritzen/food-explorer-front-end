@@ -8,21 +8,127 @@ import {
     DishNewLabelP,
     DishNewSelect,
     DishNewInputTextarea,
-    DishEditButtons, 
+    DishEditButtons,
+    DishNewIngredients, 
     InputWrapper    
 } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { Footer } from "../../components/Footer";
 import { Input } from "../../components/Input";
 import { Header } from "../../components/Header";
 import { ButtonBackToPage } from "../../components/ButtonBackToPage";
-//import { useNavigate, useParams } from "react-router-dom";
-//import { useState, useEffect } from "react";
+import { IngredientsAction } from "../../components/IngredientsAction";
+import { api } from "../../services/api";
+import { useState, useEffect } from "react";
 
 
 export function DishEdit() {
+
+    const navigate = useNavigate()
+    const {id} = useParams();
+    const idDish = id ? Number.parseInt(id, 10): 0;
+    
+    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
+    const [price, setPrice] = useState("")
+    const [category, setCategory] = useState("");
+    const [dish, setDish] = useState([]);
+
+    const [ingredients, setIngredients] = useState([])
+    const [newIngredient, setNewIngredient] = useState("")
+
+    const [imageFile, setImageFile] = useState(null);
+
+    useEffect(() => {
+        const fetchDish = async () => {
+            const response = await api.get(`/dishes/${idDish}`);
+            setDish(response.data);
+        }
+        fetchDish();
+    }, []);      
+
+    function handleAddIngredient(){
+        setIngredients(prevState => [...prevState, newIngredient])
+        setNewIngredient("")
+    }
+
+    function handleRemoveIngredient(ingredientDeleted){
+        setIngredients(prevState => prevState.filter(ingredient => ingredient !== ingredientDeleted))
+    }
+
+    async function handleEditDish(){
+        if (!imageFile) {
+            return alert("Adicione uma imagem para o prato")
+        }
+      
+        if (!name) {
+            return alert("Adicione um titulo para o prato")
+        }
+      
+        if (!description) {
+            return alert("Adicione uma descrição para o prato")
+        }
+      
+        if (!category) {
+            return alert("Adicione um categoria para o prato")
+        }
+      
+        if (!price) {
+            return alert("Adicione um preço para o prato")
+        }
+      
+        if (newIngredient) {
+            return alert("Você deixou um ingrediente no campo para adicionar")
+        }
+      
+        api.put(`/dishes/${idDish}`, { name, description, price, category, ingredients })
+
+        const formData= new FormData();
+        formData.append("image", imageFile);
+
+        api.patch(`/dishes/ImageDish/${idDish}`, formData)
+        
+        alert("Prato modificado com sucesso")
+        navigate("/")
+    }
+
+    useEffect(() => {
+        async function fetchDish() {
+            const response = await api.get(`/dishes/${idDish}`)
+            
+            const { name, description, category, price, ingredients, imageFile } = response.data;
+            setTitle(name);
+            setDescription(description);
+            setCategory(category);
+            setPrice(price);
+            setIngredients(ingredients.map(ingredient => ingredient.name));
+            setImageFile(image)
+        }
+    
+        fetchDish();
+    }, [])
+
+    async function handleRemoveDish(){
+        const confirm = window.confirm(`Deseja realmente deletar o prato ${dish.name} do cardápio?`)
+
+        if(confirm){
+            await api.delete(`/dishes/${idDish}`)
+            navigate("/")
+        }
+
+    }
+
+    useEffect(()=>{
+        async function fetchNameDish(){
+            const ApiResponse = await api.get(`/dishes/${idDish}`)
+            setDish(ApiResponse.data)
+        }
+
+        fetchNameDish()
+    }, [idDish])
+
     return (
         <Container>
             <Header/>
@@ -31,7 +137,7 @@ export function DishEdit() {
                 <Link to="/">
                     <ButtonBackToPage/>
                 </Link>
-                <DishNewTitle>Novo Prato</DishNewTitle>
+                <DishNewTitle>Editar Prato</DishNewTitle>
                 <Form>
                     <DishNewDivDesktop>                        
                         <DishNewLabel>
@@ -41,6 +147,7 @@ export function DishEdit() {
                             <Input
                                 type="file"
                                 placeholder="Selecione imagem"
+                                onChange={e => setImageFile(e.target.files[0])}
                             />
                         </DishNewLabel>
                         <DishNewLabel>
@@ -49,15 +156,17 @@ export function DishEdit() {
                             </DishNewLabelP>
                             <Input
                                 type="text"
-                                placeholder="Ex.: Salada Ceasar"
+                                placeholder={dish.name}
+                                value={name}
+                                onChange={event => setName(event.target.value)}
                             />
                         </DishNewLabel>
                         <DishNewLabel>
                             <DishNewLabelP>
                                 Categoria
                             </DishNewLabelP>
-                            <DishNewSelect >
-                                <option value="refeicao">Refeição</option>
+                            <DishNewSelect value={category} onChange={e=>setCategory(e.target.value)}>
+                                <option value="refeição">Refeição</option>
                                 <option value="sobremesa">Sobremesa</option>
                                 <option value="bebida">Bebida</option>
                             </DishNewSelect>
@@ -68,7 +177,22 @@ export function DishEdit() {
                             <DishNewLabelP>
                                 Ingredientes
                             </DishNewLabelP>
-                            <Input/>
+                            <DishNewIngredients>
+                                {ingredients.map((ingredient, index) => (
+                                    <IngredientsAction
+                                        key={String(index)}
+                                        value={ingredient}
+                                        onClick={() => handleRemoveIngredient(ingredient)}
+                                    />
+                                ))}
+                                <IngredientsAction
+                                    isNew 
+                                    placeholder='Adicionar'
+                                    onChange={e => setNewIngredient(e.target.value)}
+                                    value={newIngredient}
+                                    onClick={handleAddIngredient}
+                                />
+                            </DishNewIngredients>
                         </DishNewLabel>
                         <DishNewLabel>
                             <DishNewLabelP>
@@ -78,6 +202,8 @@ export function DishEdit() {
                                 className="inputMoney"
                                 type="number"
                                 placeholder="R$ 00,00"
+                                value={price}
+                                onChange={event => setPrice(event.target.value)}
                             />
                         </DishNewLabel>
                     </DishNewDivDesktop>
@@ -86,9 +212,11 @@ export function DishEdit() {
                             <DishNewLabelP>
                                 Descrição
                             </DishNewLabelP>
-                            <DishNewInputTextarea>
-                                Fale brevemente sobre o prato, seus ingredientes e composição
-                            </DishNewInputTextarea>
+                            <DishNewInputTextarea
+                                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                                value={description}
+                                onChange={e => setDescription(e.target.value)}
+                            />                               
                         </DishNewLabel>
                     </DishNewDivDesktop>
                     <DishEditButtons>
@@ -96,11 +224,13 @@ export function DishEdit() {
                             className="buttonDelete"
                             type="submit"
                             title="Excluir prato"
+                            onClick={handleRemoveDish}
                         />
                         <Button
                             className="buttonSave"
                             type="submit"
                             title="Salvar alterações"
+                            onClick={handleEditDish}
                         />
                     </DishEditButtons>
                     

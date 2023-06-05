@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     align-items: center;
-    background:  ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.GRAY_1};
+    background:  ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.GRAY_2};
     color:  ${({ theme }) => theme.COLORS.GRAY_2};
     border: ${({ theme, isNew }) => isNew ? `1px dashed  ${theme.COLORS.GRAY_2}` : "none"};
     border-radius: 10px;
@@ -12,7 +12,7 @@ export const Container = styled.div`
         border: none;
         background: none;
         color:  ${({ theme }) => theme.COLORS.WHITE};
-        padding: 12px 12px 12px 0;
+        padding: 10px;
     }
     input {
         height: 32px;

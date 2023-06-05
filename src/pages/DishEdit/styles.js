@@ -75,6 +75,16 @@ export const DishNewSelect = styled.select`
 
 `;
 
+export const DishNewIngredients = styled.div`
+    display: flex;
+    gap: 1.6rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
+
+`;
+
 export  const DishNewInputTextarea = styled.textarea`
   background: ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
   border: none;

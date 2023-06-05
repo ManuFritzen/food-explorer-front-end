@@ -20,7 +20,6 @@ import { api } from "../../services/api";
 
 import { ButtonBackToPage } from "../../components/ButtonBackToPage";
 import {IngredientTag} from "../../components/IngredientTag";
-import SaladaRavanello from "../../assets/saladaRavanello.png";
 import Coupon from "../../assets/coupon.svg";
 
 
@@ -30,7 +29,7 @@ import { Footer } from "../../components/Footer";
 import { useAuth } from "../../hooks/auth";
 import { useEffect, useState } from "react";
 
-export function Details(){
+export function Details(props){
   const {user} = useAuth();
   const {id} = useParams();
   const [dish, setDish] = useState([]);
@@ -38,15 +37,17 @@ export function Details(){
   const idDish = id ? Number.parseInt(id, 10): 0;
 
   
+  
   useEffect(() => {
     const fetchDish = async () => {
-      const response = await api.get("/dishes");
+      const response = await api.get(`/dishes/${idDish}`);
       setDish(response.data);
     }
     fetchDish();
   }, []);
-
-
+  
+  const imageUrl = `${api.defaults.baseURL}/files/dishes/${dish.image}`;
+  
     return(
       <Container>
           <Header/>
@@ -58,18 +59,14 @@ export function Details(){
               <ButtonBackToPage/>
             </Link>
             <Content>
-              {
-                dish.filter((dish) => dish.id == idDish)
-                .map((dish) => (
-                  <React.Fragment key={dish.id}>
-                    <DetailImage src={dish.image} alt="" />
+                    <DetailImage src={imageUrl} alt="" />
                     <DetailInformation>
                       <DetailDescriptionTitle>{dish.name}</DetailDescriptionTitle>
                       <DetailDescription>{dish.description}</DetailDescription>
                       <DetailIngredients>
-                      {/* {dish.ingredients.map((ingredient) => (
+                      {dish.ingredients && dish.ingredients.map((ingredient) => (
                         <IngredientTag key={String(ingredient.id)} title={ingredient.name} />
-                      ))}  */}
+                      ))}  
                       </DetailIngredients>
                       <DetailPrice>
                         <DetailCount>
@@ -80,9 +77,8 @@ export function Details(){
                         <Button className="button" icon={Coupon} title="Pedir - R$ 00,00" />
                       </DetailPrice>
                     </DetailInformation>
-                  </React.Fragment>
-                ))
-            }
+                
+            
             </Content>         
           </DetailMain>
           </>
@@ -93,33 +89,27 @@ export function Details(){
               <ButtonBackToPage/>
             </Link>
             <Content>
-            {
-                dish.filter((dish) => dish.id == idDish)
-                .map((dish) => (
-                  <React.Fragment key={dish.id}>
-                <DetailImage
-                  src={dish.image}
-                  alt=""
-                />
-                <DetailInformation>
-                  <DetailDescriptionTitle>
-                    {dish.name}
-                  </DetailDescriptionTitle>
-                  <DetailDescription>
-                    {dish.description}
-                  </DetailDescription>
-                  <DetailIngredients>
-                    {/* {dish.ingredients.map((ingredient) => (
-                      <IngredientTag key={String(ingredient.id)} title={ingredient.name} />
-                    ))}           */}
-                  </DetailIngredients>
-                  <Link to="/dishEdit" className="button">
-                    <Button title="Editar prato" className="button"/>
-                  </Link>
-                </DetailInformation>
-              </React.Fragment>
-                ))
-            }           
+          
+              <DetailImage
+                src={imageUrl}
+                alt=""
+              />
+              <DetailInformation>
+                <DetailDescriptionTitle>
+                  {dish.name}
+                </DetailDescriptionTitle>
+                <DetailDescription>
+                  {dish.description}
+                </DetailDescription>
+                <DetailIngredients>
+                  {dish.ingredients && dish.ingredients.map((ingredient) => (
+                    <IngredientTag key={String(ingredient.id)} title={ingredient.name} />
+                  ))}
+                </DetailIngredients>
+                <Link to={`/dishEdit/${dish.id}`} className="button">
+                  <Button title="Editar prato" className="button"/>
+                </Link>
+              </DetailInformation>                       
             </Content>         
           </DetailMain>
           </>
