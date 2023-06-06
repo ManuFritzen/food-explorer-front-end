@@ -2,6 +2,15 @@
 Desafio final Explorer - front-end
 </h1>
 
+## acesse o site pelo link abaixo
+
+- [Deploy do site](https://foodexplorermanu.netlify.app/)
+
+**Para entrar como adminitrador use email: admin@email.com e senha: admin123.**
+**Para entrar como usuário crie uma conta e depois faça login com a conta criada.**
+
+
+
 
 ## Sobre 📝
 
