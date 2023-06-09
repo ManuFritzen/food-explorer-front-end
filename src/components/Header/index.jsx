@@ -8,6 +8,9 @@ import {
     AmountNumber,
     CouponImg,
     MenuMobile,
+    MenuMobileOpen,
+    MenuMobileOpenContent,
+    MenuMobileOpenButton,
     MenuTitle,
 } from "./styles";
 import { FiSearch, FiMenu } from "react-icons/fi";
@@ -25,33 +28,19 @@ export function Header(){
     
     function MenuOpen(){
         const menuHamburguer = document.querySelector(".menuHamburguer");
-        const menuMobileDiv = document.querySelector(".menuMobileDiv");
-        const logo = document.querySelector(".logo");
-        const coupon = document.querySelector(".coupon");
-        const menuTitle = document.querySelector(".menuTitle");
+        const menuMobileOpen = document.querySelector(".menuMobileOpen");    
         
-        menuMobileDiv.style.display = "block";          
-        logo.style.display = "none";            
-        coupon.style.display = "none";          
-        menuTitle.style.display = "block";
+        menuMobileOpen.style.display = "block";       
         menuHamburguer.style.display = "none";           
         
     }
 
     function MenuClose(){
-        const menuTitle = document.querySelector(".menuTitle");
         const menuHamburguer = document.querySelector(".menuHamburguer");
-        const menuMobileDiv = document.querySelector(".menuMobileDiv");
-        const logo = document.querySelector(".logo");
-        const coupon = document.querySelector(".coupon");
+        const menuMobileOpen = document.querySelector(".menuMobileOpen");    
         
-        menuMobileDiv.style.display = "none";          
-        logo.style.display = "block";            
-        coupon.style.display = "block";          
-        menuHamburguer.style.display = "block";
-        menuTitle.style.display = "none";
-        
-        window.location.reload();        
+        menuMobileOpen.style.display = "none";       
+        menuHamburguer.style.display = "block";        
     }
     
     
@@ -63,7 +52,6 @@ export function Header(){
                 <> 
                     <HeaderMenu >
                         <FiMenu className="menuHamburguer" size={24} onClick={MenuOpen}/>
-                        <MenuTitle className="menuTitle" onClick={MenuClose}>X Menu</MenuTitle>
                     </HeaderMenu>
 
                     <Link to="/">
@@ -91,13 +79,24 @@ export function Header(){
                             <CouponImg src={Coupon} alt="Coupon"/>
                         </CouponAmount>
                     </Link>
+                    <MenuMobileOpen className="menuMobileOpen">
+                        <MenuTitle className="menuTitle" onClick={MenuClose}>X Menu</MenuTitle>
+                        <MenuMobileOpenContent>
+                            <Input className="inputHeader inputMobile"           
+                            icon={FiSearch}
+                            placeholder="Busque por pratos ou ingredientes"
+                            />                            
+                            <MenuMobileOpenButton onClick={signOut} className="button" >
+                                Sair
+                            </MenuMobileOpenButton>
+                        </MenuMobileOpenContent>
+                    </MenuMobileOpen>
                 </>
 
                 :
                 <> 
                     <HeaderMenu >
                         <FiMenu className="menuHamburguer" size={24} onClick={MenuOpen}/>
-                        <MenuTitle className="menuTitle" onClick={MenuClose}>X Menu</MenuTitle>
                     </HeaderMenu>
 
                     <Link to="/">
@@ -123,6 +122,23 @@ export function Header(){
 
                         </CouponAmount>
                     </Link>
+                    <MenuMobileOpen className="menuMobileOpen">
+                        <MenuTitle className="menuTitle" onClick={MenuClose}>X Menu</MenuTitle>
+                        <MenuMobileOpenContent>
+                            <Input className="inputHeader inputMobile"           
+                            icon={FiSearch}
+                            placeholder="Busque por pratos ou ingredientes"
+                            />
+                            <Link to="/dishNew">
+                                <MenuMobileOpenButton onClick={MenuClose} className="button">
+                                    Novo prato
+                                </MenuMobileOpenButton>
+                            </Link>
+                                <MenuMobileOpenButton onClick={signOut} >
+                                    Sair
+                                </MenuMobileOpenButton>
+                        </MenuMobileOpenContent>
+                    </MenuMobileOpen>
                 </>           
             }
         </Container>

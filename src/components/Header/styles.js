@@ -50,9 +50,6 @@ export const HeaderMenu = styled.label`
     }
 `;
 
-export const MenuTitle = styled.p`
-    display: none;
-`;
 
 export const HeaderLogo = styled.img`
     width: 197px;
@@ -63,27 +60,27 @@ export const HeaderLogo = styled.img`
     img{
         width: 24px;
     }
-`;
+    `;
 
 export const HeaderExit = styled.button`
     background: none;
     border: none;
-`;
+    `;
 
 export const HeaderExitImage = styled.img`
     background: none;
     border: none;
     margin-top: 10px;
     //display: none;
-
+    
     @media screen and (min-width: 1024px) {
         display: block;
     }
-`;
+    `;
 
 export const CouponAmount = styled.div`   
 
-    @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
         display: none;
     }
 `;
@@ -100,24 +97,25 @@ export const AmountNumber = styled.p`
     position: relative;
     margin-bottom: -10px;
     right: -15px;
-
-
-`;
+    
+    
+    `;
 
 export const CouponImg = styled.img`
     color: ${({theme})=> theme.COLORS.WHITE};
-`;
+    `;
 
 export const MenuMobile = styled.div`
     display: none;
     position: absolute;
-    margin-top: 650px;
-    width: 90%;
-    height: 500px;
+    margin-top: 800px;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
     //border: 1px solid red;;
     //width: 100%;
     background: ${({theme})=> theme.COLORS.BACKGROUND_PRIMARY};    
-
+    
     @media screen and (min-width: 1024px) {
         height: auto;
         position: relative;
@@ -128,4 +126,53 @@ export const MenuMobile = styled.div`
         background: none;
     }
     
+    `;
+
+export const MenuMobileOpen = styled.div`
+    background: ${({theme})=> theme.COLORS.BACKGROUND_PRIMARY};
+    position: fixed ;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+
 `;
+
+export const MenuTitle = styled.p`
+    cursor: pointer;
+    background: #001119;
+    height: 114px;
+    padding: 56px 24px 28px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21.1629px;
+    line-height: 25px;
+`;
+
+export const MenuMobileOpenContent = styled.div`
+    margin: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    .button{
+        margin-top: 36px;
+    }
+`;
+
+export const MenuMobileOpenButton = styled.button`
+    display: flex;
+    width: 100%;
+    background: none;
+    color:  #E1E1E6;
+    border-top: none;
+    border-left: none;
+    border-bottom:  1px solid #192227;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    padding: 10px;
+`;
+
